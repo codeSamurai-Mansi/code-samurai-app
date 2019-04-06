@@ -20,7 +20,7 @@ function databaseInitialize() {
     Item = db.getCollection("items");
     if (User === null) {
         User = db.addCollection("users");
-        User.insert({username:'admin',password:'admin'});
+        User.insert({username:'Mansi Prihar 13',password:'060623june'});
         User.insert({username:'user',password:'user'});
     }
     if (Item === null) {
@@ -98,7 +98,10 @@ app.get('/additem', function (request, response) {
     response.render('addpage',{loginName:request.session.user});
 });
 
-
+// when the link Add New Item is clicked - links or <a> tags always send "get" not "post"
+app.get('/delete', function (request, response) {
+    response.render('list',{loginName:request.session.user});
+});
 
 // click Welcome on login page
 app.post('/login', function (request, response) {
