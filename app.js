@@ -107,22 +107,21 @@ app.post('/login', function (request, response) {
 
     // save login name in session so it's available later
     request.session.user = loginName;
+if(userPasswordMatch(loginName, password)){
+        response.render('listpage', {items: Item.find()});
+}else {response.render('index', {message: "Invalid user name or password"});}
 
     //hint: check is password is good or not, if not load same page with error as below
-    //response.render('index', {message: "Invalid user name or password"});
-
-    response.render('listpage', {items: Item.find()});
-
 });
 
 
 
 // when save button is clicked on add page
 app.post('/saveitem', function (request, response) {
-
+var items=saveFormAndReturnAllItems(request.body)
     // hint #1: find the helper function that will help save the information first
     // hint #2: make sure to send the list of items to the list page
 
-    response.render('listpage',{ items:[] });
+    response.render('listpage',{ items:items });
 });
 

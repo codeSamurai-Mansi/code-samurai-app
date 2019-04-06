@@ -13,7 +13,17 @@
 
 
 
-        Added by: <input type="text" name="addedBy" value="<%=loginName%>" readonly/>
+        Added by: <input type="text" name="addedBy" value="<%=loginName%>"/>
+
+        Song Name: <input type="text" name="songName" value=""required/>
+
+        Arstist: <input type="text" name="artist" value=""required/>
+
+        Release Year: <input type="number" name="releaseYear" value=""required min="1965"/>
+
+        Link: <input type="text" name="link" value=""/>
+
+        Genre-optional: <input type="text" name="genre" value=""/>
 
         <button class="btn" type="submit" name="submit">Save Item</button>
 
